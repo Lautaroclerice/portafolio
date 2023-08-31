@@ -81,12 +81,13 @@ footer {
 /* HABILIDADES ICONOS */
 .habilidades {
     display: grid;
-    grid-template-columns:repeat(2, 1fr) ;
+    grid-template-columns:repeat(4, 1fr) ;
     grid-template-rows: repeat(3,1fr);
+    grid-gap: 20px;
     grid-template-areas:
-    "html css"
-    "js bs"
-    "git git";
+    "nada html nada1 css"
+    "js nada2 bs nada3"
+    "nada4 git nada5 sass";
 }
 .html{
     grid-area: html;
@@ -114,7 +115,9 @@ footer {
 }
 .git {
     grid-area: git;
-    margin-left: 25%;
+}
+.sass {
+    grid-area: sass;
 }
 .fa-brands {
     font-size: 100px;
@@ -261,8 +264,6 @@ footer {
 /*PROYECTOSS*/
 .container-proyecto {
     height: 700px;
-    width: 300px ;
-    margin-left: 10%;
     display: grid;
     margin-bottom: 30px;
 }
@@ -277,7 +278,6 @@ footer {
 }
 .cardProyect {
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.403);
-    margin-top: 20px;
     border-radius: 10px;
 }
 /*---------------------------------------------------------------------*/
@@ -331,6 +331,7 @@ footer {
     }
     .visible {
         display: flex;
+        width: 100%;
         flex-direction: column;
         justify-content: center;
         transition: .5s;
@@ -395,25 +396,22 @@ footer {
         grid-template-columns:repeat(1, 1fr) ;
         grid-template-rows: repeat(3, 1fr);
         grid-template-areas: 
-    "card1"
-    "card2"
-    "card3";
+        "card1"
+        "card2"
+        "card3";
+        width: 90%;
+        margin: 30px;
+        grid-gap:30px;
     }
 }
-@media screen and (min-width: 601px) and (max-width: 1200px){
+@media screen and (min-width: 601px) and (max-width: 1100px){
     .habilidades{
         display: grid;
         grid-template-columns:repeat(3, 1fr) ;
         grid-template-rows: repeat(2,1fr);
         grid-template-areas:
         "html css js"
-        "bs git git";
-    }
-    .git {
-        margin-left: 28%;
-    }
-    .bootstrap {
-        margin-left:55% ;
+        "bs git sass";
     }
     .header i {
         display: none;
@@ -426,7 +424,7 @@ footer {
         display:flex;
     }
     .navbar-list li {
-        margin-right: 30px;
+        margin-right: 60px;
     }
     .navbar-opciones {
         color: white;
@@ -440,13 +438,6 @@ footer {
     .colorLogo {
         color:#000;
     }
-    .sobre-mi {
-        display: flex;
-        margin-right: 11%;
-    }
-    .card-sobre-mi {
-        width: 700px;
-    }
     .container-proyecto {
         grid-template-columns: repeat(3, 30%);
         grid-template-rows: repeat(1, 1fr);
@@ -455,5 +446,8 @@ footer {
         width: 100%;
         margin-left: 3%;
         grid-gap:20px ;
+    }
+    .skills {
+        margin-left: 5%;
     }
 }
