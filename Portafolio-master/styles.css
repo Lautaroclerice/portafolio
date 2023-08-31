@@ -264,12 +264,6 @@ footer {
     width: 300px ;
     margin-left: 10%;
     display: grid;
-    grid-template-columns:repeat(1, 1fr) ;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: 
-    "card1"
-    "card2"
-    "card3";
     margin-bottom: 30px;
 }
 .card1 {
@@ -366,7 +360,6 @@ footer {
         z-index: 2;
         margin-left: 70%;
     }
-}
     .logo span {
         color: rgb(255, 217, 2);
     }
@@ -392,16 +385,20 @@ footer {
         width: 100%;
         height: 200px;
     }
-    .menu-animado {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.7s ease-in-out;
-    }
     .toggle-menu {
         padding: 10px;
     }
     .habilidades {
         margin-left: 5%;
+    }
+    .container-proyecto {
+        grid-template-columns:repeat(1, 1fr) ;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 
+    "card1"
+    "card2"
+    "card3";
+    }
 }
 @media screen and (min-width: 601px) and (max-width: 1200px){
     .habilidades{
@@ -427,20 +424,36 @@ footer {
     }
     #navbar-list1 {
         display:flex;
-
     }
     .navbar-list li {
         margin-right: 30px;
-        color: white;
     }
-    .navbar-list a {
+    .navbar-opciones {
         color: white;
-        height: 40px;
     }
     .logoNombre span {
         color: rgb(255, 217, 2);
     }
     #principal {
         border: 1px solid white;
-    }  
+    }
+    .colorLogo {
+        color:#000;
+    }
+    .sobre-mi {
+        display: flex;
+        margin-right: 11%;
+    }
+    .card-sobre-mi {
+        width: 700px;
+    }
+    .container-proyecto {
+        grid-template-columns: repeat(3, 30%);
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-areas: "card1 card2 card3";
+        height: 400px;
+        width: 100%;
+        margin-left: 3%;
+        grid-gap:20px ;
+    }
 }
