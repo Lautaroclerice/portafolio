@@ -6,6 +6,7 @@ const navbarOpciones = document.getElementsByClassName("navbar-opciones");
 const logoNombre = document.getElementsByClassName("logoNombre");
 //------------------------------------------------------------>
 
+//------------------------------------------------------------>
 // TRANSICION MENU HAMBURGUESA
 botonMenu.addEventListener("click", () => {
   listaMenu.classList.toggle("visible");
@@ -33,9 +34,6 @@ botonMenu.addEventListener("click", () => {
       for (let i = 0; i < logoNombre.length; i++) {
         logoNombre[i].style.color = "black";
       }
-    } else if (scrollY >= alturaCambioSobremi) {
-      const sobreMi = document.getElementById("sobreMiId");
-      sobreMi.style.color = "yellow";
     } else {
       barraNav.classList.remove("colorNavMov");
       for (let i = 0; i < navbarOpciones.length; i++) {
@@ -64,5 +62,15 @@ document.querySelectorAll(".navbar-list a").forEach((enlace) => {
 ScrollReveal().reveal('.headline');
 ScrollReveal().reveal('.tagline', { delay: 200 });
 ScrollReveal().reveal('.punchline', { delay: 200 });
+//---------------------------------------------------------------->
+
+//SUBRAYADO DE POSICION NAVBAR
+for (let i = 0; i < navbarOpciones.length; i++) {
+  navbarOpciones[i].addEventListener("click", () => {
+    if(elementoId(navbarOpciones)) {
+    navbarOpciones[i].classList.add = "subrayado-ul";
+    }
+  });
+};
 //---------------------------------------------------------------->
 

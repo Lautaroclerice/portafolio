@@ -77,7 +77,7 @@ footer {
     height: 650px;
 }
 .banner {
-    margin-top: 50PX;
+    margin-top: -40px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -212,8 +212,8 @@ footer {
 .sobre-mi {
     text-align: start;
     font-weight: 300;
-    
 }
+
 .card-sobre-mi{
     text-align: start;
     margin: 10px;
@@ -299,6 +299,9 @@ footer {
 .logoNombre a {
     color: white;
 }
+.logoNombre {
+    font-size: 19px;
+}
 .header {
     position: fixed;
     display: flex;
@@ -329,23 +332,19 @@ footer {
     margin-left: 10%;
 }
 
-/*--------------------------------------------*/
-.menu {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .menu li {
+/*--------------------------------------------*/  
+.menu li {
     margin-right: 70px;
-  }
+}
   
-  .menu a {
+.menu a {
     position: relative;
     display: block;
     padding: 5px;
-  }
+    font-size: 19px ;
+}
   
-  .menu a::before {
+.menu a::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -357,32 +356,45 @@ footer {
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.5s ease-in-out;
-  }
+}
   
-  .menu a:hover::before {
+.menu a:hover::before {
     transform: scaleX(1);
-  }
+}
   
   
   /* ANIMATIONS*/
-  .menu[data-animation="to-left"] a::before {
+.menu[data-animation="to-left"] a::before {
     transform-origin: right;
-  }
+}
   
-  .menu[data-animation="center"] a::before {
+.menu[data-animation="center"] a::before {
     transform-origin: center;
-  }
+}
   
-  .menu[data-animation="bonus"] a::before {
+.menu[data-animation="bonus"] a::before {
     transform-origin: right;
-  }
+}
   
-  .menu[data-animation="bonus"] a:hover::before {
+.menu[data-animation="bonus"] a:hover::before {
     transform-origin: left;
     transform: scaleX(1);
     transition-timing-function: cubic-bezier(0.2, 1, 0.82, 0.94);
-  }
-  
+}
+.subrayado-ul {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ffe600, #d8bb19, #ffb109);
+    z-index: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+
 @media screen and (max-width: 600px){
     .principal {
         height: 500px;
@@ -584,6 +596,7 @@ footer {
     }
     /* HABILIDADES ICONOS */
 .habilidades {
+    margin-top: 50px;
     display: grid;
     grid-template-columns:repeat(4, 1fr) ;
     grid-template-rows: repeat(3,1fr);
@@ -652,6 +665,17 @@ footer {
     .logoNombre span {
         color: rgb(255, 217, 2);
     }
+    .sobre-mi {
+        display: flex;
+        margin: 0px;
+        height: 500px;
+
+    }
+    .card-sobre-mi {
+        margin: 0;
+        margin: 3%;
+    }
+   
 }
 @media screen and (min-width: 1300px) {
     #principal{
@@ -660,5 +684,18 @@ footer {
     .form-contacto {
         width: 100%;
         margin-left:0%;
+    }
+    .subrayado-ul {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #ffe600, #d8bb19, #ffb109);
+        z-index: 1;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.5s ease-in-out;
     }
 }
