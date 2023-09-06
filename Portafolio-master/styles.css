@@ -29,19 +29,25 @@ textarea {
 form {
     margin-left: 10%;
     padding: 10px;
+    width: 100%;
 }
 footer {
     margin-top: 20px;
 }
 /*--------------------------------------------*/
+.flecha {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
 #imgFlecha {
     width: 40px;
 }
 
-
 /*BANNER PRINCIPAL */
 .principal {
-    height: 500px;
+    height: 600px;
     text-align: center;
     align-items: center;
     position: relative;
@@ -68,10 +74,10 @@ footer {
     background-size: cover;
     width: 100%;
     z-index: -1;
-    height: 600px;
+    height: 650px;
 }
 .banner {
-    margin-top: 50PX;
+    margin-top: -40px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -81,12 +87,13 @@ footer {
 /* HABILIDADES ICONOS */
 .habilidades {
     display: grid;
-    grid-template-columns:repeat(2, 1fr) ;
+    grid-template-columns:repeat(4, 200px) ;
     grid-template-rows: repeat(3,1fr);
+    grid-gap: 20px;
     grid-template-areas:
-    "html css"
-    "js bs"
-    "git git";
+    "nada html nada1 css"
+    "js nada2 bs nada3"
+    "nada4 git nada5 sass";
 }
 .html{
     grid-area: html;
@@ -104,17 +111,41 @@ footer {
 .card-habilidades {
     height: 180px;
     width: 180px;
-    margin: 5px;
     box-shadow: 1px 1px 7px rgba(255, 217, 2, 0.904) ;
     border: .5px solid rgba(128, 128, 128, 0.111);
     border-radius: 50%;
 }
-.card-habilidades h3 {
-    margin-top: -3px;
+.card-habilidades i {
+    margin-top: 22%;
+    transition: .7s ease-in-out;
+}
+.card-habilidades:hover i {
+    transform: rotate(360deg) scale(1.5);
+
+} 
+.cartel {
+    margin-left: 13%;
+    box-shadow: 0px 0px 2px grey;
+    background-color: rgba(0, 0, 0, 0.353);
+    color: white;
+    font-weight: 300;
+    width: 100px;
+    border-radius:5px ;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1.2s;
+    
+}
+
+.card-habilidades:hover .cartel {
+    transition: 1.2s;
+    opacity: 1;
 }
 .git {
     grid-area: git;
-    margin-left: 25%;
+}
+.sass {
+    grid-area: sass;
 }
 .fa-brands {
     font-size: 100px;
@@ -133,10 +164,9 @@ footer {
 /* FORMULARIO */
 .form-contacto {
     text-align: start; 
-    margin-left: 5px;
     border-radius: 5px;
     background-color:rgba(72, 72, 72, 0.082) ;
-    margin-right: 5px;
+    margin-left: 2%;
 }
 .form-contacto p {
     font-weight: 300;
@@ -204,8 +234,8 @@ footer {
 .sobre-mi {
     text-align: start;
     font-weight: 300;
-    
 }
+
 .card-sobre-mi{
     text-align: start;
     margin: 10px;
@@ -227,6 +257,13 @@ footer {
 }
 .card-sobre-mi ul {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    
+}
+.card-sobre-mi ul li {
+    padding:13px;
+    font-size: 17px;
 }
 .circle {
     position: absolute;
@@ -261,10 +298,13 @@ footer {
 /*PROYECTOSS*/
 .container-proyecto {
     height: 700px;
-    width: 300px ;
-    margin-left: 10%;
     display: grid;
     margin-bottom: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "nada card1 card2 nada1"
+    "nada card3 card3 nada1";
+    grid-gap: 30px;
 }
 .card1 {
     grid-area: card1 ;
@@ -277,7 +317,6 @@ footer {
 }
 .cardProyect {
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.403);
-    margin-top: 20px;
     border-radius: 10px;
 }
 /*---------------------------------------------------------------------*/
@@ -288,6 +327,9 @@ footer {
 }
 .logoNombre a {
     color: white;
+}
+.logoNombre {
+    font-size: 19px;
 }
 .header {
     position: fixed;
@@ -313,6 +355,74 @@ footer {
     z-index: 100;
 }
 /*-------------------------------------------*/
+/*SKILLS*/
+.skills {
+    width: 80%;
+    margin-left: 10%;
+}
+
+/*--------------------------------------------*/  
+.menu li {
+    margin-right: 70px;
+}
+  
+.menu a {
+    position: relative;
+    display: block;
+    padding: 5px;
+    font-size: 19px ;
+}
+  
+.menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ffe600, #d8bb19, #ffb109);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+  
+.menu a:hover::before {
+    transform: scaleX(1);
+}
+  
+  
+  /* ANIMATIONS*/
+.menu[data-animation="to-left"] a::before {
+    transform-origin: right;
+}
+  
+.menu[data-animation="center"] a::before {
+    transform-origin: center;
+}
+  
+.menu[data-animation="bonus"] a::before {
+    transform-origin: right;
+}
+  
+.menu[data-animation="bonus"] a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.82, 0.94);
+}
+.subrayado-ul {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ffe600, #d8bb19, #ffb109);
+    z-index: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
 
 @media screen and (max-width: 600px){
     .principal {
@@ -331,6 +441,7 @@ footer {
     }
     .visible {
         display: flex;
+        width: 100%;
         flex-direction: column;
         justify-content: center;
         transition: .5s;
@@ -395,25 +506,47 @@ footer {
         grid-template-columns:repeat(1, 1fr) ;
         grid-template-rows: repeat(3, 1fr);
         grid-template-areas: 
-    "card1"
-    "card2"
-    "card3";
+        "card1"
+        "card2"
+        "card3";
+        width: 90%;
+        margin: 30px;
+        grid-gap:30px;
+    }
+    .habilidades {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "html css"
+        "js bs"
+        "git sass";
+    }
+    .img-qr img {
+        width: 250px;
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+    }
+    .img-qr {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    .titulo-qr {
+        display: flex;
+        justify-content: center;
+    }
+    .form-contacto {
+        width: 100%;
+        margin-left: 0;
     }
 }
-@media screen and (min-width: 601px) and (max-width: 1200px){
+@media screen and (min-width: 601px) and (max-width: 1100px){
     .habilidades{
         display: grid;
         grid-template-columns:repeat(3, 1fr) ;
         grid-template-rows: repeat(2,1fr);
         grid-template-areas:
         "html css js"
-        "bs git git";
-    }
-    .git {
-        margin-left: 28%;
-    }
-    .bootstrap {
-        margin-left:55% ;
+        "bs git sass";
     }
     .header i {
         display: none;
@@ -426,10 +559,11 @@ footer {
         display:flex;
     }
     .navbar-list li {
-        margin-right: 30px;
+        margin-right: 60px;
     }
     .navbar-opciones {
         color: white;
+        position: relative;
     }
     .logoNombre span {
         color: rgb(255, 217, 2);
@@ -440,13 +574,6 @@ footer {
     .colorLogo {
         color:#000;
     }
-    .sobre-mi {
-        display: flex;
-        margin-right: 11%;
-    }
-    .card-sobre-mi {
-        width: 700px;
-    }
     .container-proyecto {
         grid-template-columns: repeat(3, 30%);
         grid-template-rows: repeat(1, 1fr);
@@ -455,5 +582,161 @@ footer {
         width: 100%;
         margin-left: 3%;
         grid-gap:20px ;
+    }
+    .skills {
+        margin-left: 5%;
+    }
+    .img-qr img {
+        width: 350px;
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+    }
+    .img-qr {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    .titulo-qr {
+        display: flex;
+        justify-content: center;
+    }
+    .form-contacto {
+        width: 100%;
+        margin-left:10%;
+    }
+}
+@media screen and (min-width: 950px) {
+    .img-qr img {
+    width: 350px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    }
+    .img-qr {
+    display: flex;
+    justify-content: center;
+    margin: 40px 30px;
+    }
+    .titulo-qr {
+    display: flex;
+    justify-content: center;
+    }
+    .form-contacto {
+        display: flex;
+    }
+    /* HABILIDADES ICONOS */
+.habilidades {
+    width: 84%;
+    margin:50px auto ;
+    display: grid;
+    grid-template-columns:repeat(4, 150px) ;
+    grid-template-rows: repeat(3, 170px);
+    grid-gap: 20px;
+    grid-template-areas:
+    "nada html nada1 css"
+    "js nada2 bs nada3"
+    "nada4 git nada5 sass";
+}
+.html{
+    grid-area: html;
+}
+.css {
+    grid-area: css;
+}
+.js {
+    grid-area: js;
+}
+.bootstrap {
+    grid-area: bs;
+}
+
+.card-habilidades {
+    height: 180px;
+    width: 180px;
+    margin: 5px;
+    box-shadow: 1px 1px 7px rgba(255, 217, 2, 0.904) ;
+    border: .5px solid rgba(128, 128, 128, 0.111);
+    border-radius: 50%;
+}
+.card-habilidades h3 {
+    margin-top: -3px;
+}
+.git {
+    grid-area: git;
+}
+.sass {
+    grid-area: sass;
+}
+.fa-brands {
+    font-size: 100px;
+    margin-top: 20px;
+}
+
+.perfil {
+    width: 250px;
+    height: 250px;
+    box-shadow: 1px 1px 6px rgba(255, 217, 2, 0.44) ;
+    border-radius: 50%;
+}
+.form-contacto {
+    width: 100%;
+    margin-left:2%;
+}
+}
+@media screen and (min-width: 1101px) {
+    .navbar-list li {
+        margin-right: 60px;
+    }
+    .navbar-list {
+        display: flex;
+    }
+    .navbar-opciones {
+        color: white;
+    }
+    .logoNombre span {
+        color: rgb(255, 217, 2);
+    }
+    .sobre-mi {
+        display: flex;
+        margin: 0px;
+        height: 500px;
+
+    }
+    .card-sobre-mi {
+        margin: 0;
+        margin: 3%;
+    }
+   
+}
+@media screen and (min-width: 1300px) {
+    #principal{
+     height: 750px;
+    }
+    .form-contacto {
+        width: 100%;
+        margin-left:0%;
+    }
+    .subrayado-ul {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #ffe600, #d8bb19, #ffb109);
+        z-index: 1;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.5s ease-in-out;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .card-habilidades {
+        margin-left: 100%;
+    }
+    .cartel {
+        margin-left: 10%;
+    }
+    #principal {
+        height: 950px;
     }
 }
