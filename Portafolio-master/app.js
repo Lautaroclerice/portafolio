@@ -64,13 +64,6 @@ ScrollReveal().reveal('.tagline', { delay: 200 });
 ScrollReveal().reveal('.punchline', { delay: 200 });
 //---------------------------------------------------------------->
 
-//SUBRAYADO DE POSICION NAVBAR
-for (let i = 0; i < navbarOpciones.length; i++) {
-  navbarOpciones[i].addEventListener("click", () => {
-    if(elementoId(navbarOpciones)) {
-    navbarOpciones[i].classList.add = "subrayado-ul";
-    }
-  });
-};
+
 //---------------------------------------------------------------->
 

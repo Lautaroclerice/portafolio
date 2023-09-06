@@ -87,7 +87,7 @@ footer {
 /* HABILIDADES ICONOS */
 .habilidades {
     display: grid;
-    grid-template-columns:repeat(4, 1fr) ;
+    grid-template-columns:repeat(4, 200px) ;
     grid-template-rows: repeat(3,1fr);
     grid-gap: 20px;
     grid-template-areas:
@@ -111,13 +111,35 @@ footer {
 .card-habilidades {
     height: 180px;
     width: 180px;
-    margin: 5px;
     box-shadow: 1px 1px 7px rgba(255, 217, 2, 0.904) ;
     border: .5px solid rgba(128, 128, 128, 0.111);
     border-radius: 50%;
 }
-.card-habilidades h3 {
-    margin-top: -3px;
+.card-habilidades i {
+    margin-top: 22%;
+    transition: .7s ease-in-out;
+}
+.card-habilidades:hover i {
+    transform: rotate(360deg) scale(1.5);
+
+} 
+.cartel {
+    margin-left: 13%;
+    box-shadow: 0px 0px 2px grey;
+    background-color: rgba(0, 0, 0, 0.353);
+    color: white;
+    font-weight: 300;
+    width: 100px;
+    border-radius:5px ;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1.2s;
+    
+}
+
+.card-habilidades:hover .cartel {
+    transition: 1.2s;
+    opacity: 1;
 }
 .git {
     grid-area: git;
@@ -235,6 +257,13 @@ footer {
 }
 .card-sobre-mi ul {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    
+}
+.card-sobre-mi ul li {
+    padding:13px;
+    font-size: 17px;
 }
 .circle {
     position: absolute;
@@ -596,10 +625,11 @@ footer {
     }
     /* HABILIDADES ICONOS */
 .habilidades {
-    margin-top: 50px;
+    width: 84%;
+    margin:50px auto ;
     display: grid;
-    grid-template-columns:repeat(4, 1fr) ;
-    grid-template-rows: repeat(3,1fr);
+    grid-template-columns:repeat(4, 150px) ;
+    grid-template-rows: repeat(3, 170px);
     grid-gap: 20px;
     grid-template-areas:
     "nada html nada1 css"
@@ -697,5 +727,16 @@ footer {
         transform: scaleX(1);
         transform-origin: left;
         transition: transform 0.5s ease-in-out;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .card-habilidades {
+        margin-left: 100%;
+    }
+    .cartel {
+        margin-left: 10%;
+    }
+    #principal {
+        height: 950px;
     }
 }
